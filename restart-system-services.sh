@@ -1,5 +1,6 @@
 #!/bin/bash
 ## check if services are running on server
+## restart if Not
 
 # set path - Ubuntu
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
@@ -29,7 +30,7 @@ for i in "${SERVICES[@]}"
   `systemctl is-active $i >/dev/null 2>&1`
   RESTART=$(echo $?)
 
-  if [[ $RESTART == 0]]
+  if [ $RESTART == 0 ]
    # if restarted
    then
 
